@@ -40,6 +40,7 @@ PREFIX=""
 MINWHITELIST=""
 MINCONFIG=""
 LOGSCHANNEL=""
+STATUS=""
 
 
 # SCRIPTS
@@ -60,6 +61,7 @@ WHITELISTKEY=""
 - Set MINWHITELIST to the minimum role's ID needed in that discord server to whitelist a person
 - Set MINCONFIG to the minimum role's ID needed in that discord server to create/delete products etc.
 - Set LOGSCHANNEL to the channel ID of the channel you want license logs to go to
+- Set STATUS to the status you want the discord bot to display
 - Set PRIMARYGUILD to the Guild ID of the main guild of your Discord Bot
 - Set STARTSCRIPT to the name of the script that the bot runs off (DEFAULT `server.js`)
 - Set PORT to the HTTP port you wish this bot to run from (DEFAULT `80`)
