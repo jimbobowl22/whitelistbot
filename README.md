@@ -8,7 +8,7 @@ hi, this is a very customisable version of the zing tech bot for whitelisting ur
 2. run `npm i` to install the required packages
 
 3. make 3 new files in the main directory of ur bot `.env`, `products.json` and `links.json` (fill in the json files like below)
-> `links.json`
+- `links.json`
 ```
 {
     "links": {
@@ -20,7 +20,7 @@ hi, this is a very customisable version of the zing tech bot for whitelisting ur
 }
 ```
 
-> products.json
+- `products.json`
 ```
 {
     "products": {
