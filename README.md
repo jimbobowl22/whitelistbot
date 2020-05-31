@@ -9,7 +9,7 @@ hi, this is a very customisable version of the zing tech bot for whitelisting ur
 
 3. make 3 new files in the main directory of ur bot `.env`, `products.json` and `links.json` (fill in the json files like below)
 - `links.json`
-```
+```json
 {
     "links": {
 
@@ -21,7 +21,7 @@ hi, this is a very customisable version of the zing tech bot for whitelisting ur
 ```
 
 - `products.json`
-```
+```json
 {
     "products": {
 
@@ -30,7 +30,7 @@ hi, this is a very customisable version of the zing tech bot for whitelisting ur
 ```
 
 4. fill in .env with the following code
-```
+```env
 # TOKEN
 TOKEN=""
 
@@ -94,6 +94,49 @@ WHITELISTKEY=""
 - `restart`
 - `revoke [DiscordUser] [ProductID]`
 - `unlink`
+
+**BASIC ROBLOX WHITELIST CHECKER**
+=================
+
+```lua
+local http = game:GetService("HttpService")
+local productId = ""
+
+function HttpEnabled()
+    local s = pcall(function()
+        game:GetService('HttpService'):GetAsync('http://www.google.com/')
+    end)
+    return s
+end
+
+warn("["..string.upper(productId).."] Loading...")
+
+local h = HttpEnabled()
+warn("["..string.upper(productId).."] Verifying HTTP...")
+if h == false then
+	warn("["..string.upper(productId).."] HTTP Disabled! Unloading...")
+    script.Parent:Destroy()
+end
+
+warn("["..string.upper(productId).."] Checking Licenses...")
+
+local PlaceId = game.PlaceId
+local PlaceInfo = game:GetService("MarketplaceService"):GetProductInfo(PlaceId)
+local gameOwner = nil
+if game.CreatorType == Enum.CreatorType.Group then
+    gameOwner = game:GetService("GroupService"):GetGroupInfoAsync(PlaceInfo.Creator.CreatorTargetId).Owner.Id
+else
+    gameOwner = game.CreatorId
+end
+
+local aa = http:GetAsync("http://youru.rl/whitelist/"..productId.."/"..gameOwner)
+local a = http:JSONDecode(aa)
+if a.value ~= true then
+	warn("["..string.upper(productId).."] Owner does not own "..string.upper(productId).."! Unloading...")
+	script.Parent:Destroy()
+end
+```
+
 
 **CREDITS**
 =================
