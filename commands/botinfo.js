@@ -10,7 +10,7 @@ module.exports = {
                         .setDescription("**Zing Tech Licensing System - OS Edition**")
                         .setImage("https://cdn.discordapp.com/attachments/539579135786352652/716464714053320714/yes.png")
                         .addField("Discord API Latency","**" + Math.round(message.client.ws.ping) + " ms**")
-                        .addField("Source Code","https://github.com/iPanda969/whitelistbot")
+                        .addField("Source Code","[Click here](https://github.com/iPanda969/whitelistbot)")
                         .setFooter("made with love by @axivlRBX on twitter")
                 message.channel.send(embed)
         },
