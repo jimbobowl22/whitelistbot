@@ -34,8 +34,6 @@ client.on("ready", () => {
 })
 
 client.on('message', async (message) => {
-  if (message.channel.type !== "text" && message.channel.type !== "news") { return }
-  if (message.guild.id !== process.env.PRIMARYGUILD) { return }
   if (!message.content.startsWith(process.env.PREFIX)) { return }
   const args = message.content.slice(process.env.PREFIX.length).split(/ +/);
   const command = args.shift().toLowerCase();
