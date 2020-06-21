@@ -86,7 +86,7 @@ app.get("/" + process.env.LINKCODEENDPOINT + "/:robloxid", function (req, res) {
     file.save()
     var response = {
       "status": "madecode",
-      "value": req.params.linkcode
+      "value": linkcode
     }
     res.status(200).json(response)
   } else {
