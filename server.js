@@ -14,6 +14,7 @@ const {
   Client,
   MessageEmbed
 } = require('discord.js');
+var randomstring = require("randomstring");
 
 let client = new Client();
 client.commands = new Discord.Collection();
@@ -72,14 +73,15 @@ app.get("/" + process.env.ACCLINKENDPOINT + "/:robloxid", function (req, res) {
   }
 })
 
-app.get("/" + process.env.LINKCODEENDPOINT + "/:linkcode/:robloxid", function (req, res) {
+app.get("/" + process.env.LINKCODEENDPOINT + "/:robloxid", function (req, res) {
   let file = editJsonFile(`./links.json`)
   let code = false
   let a = file.get("codes")
   if (!a[req.params.robloxid]) {
-    file.set("codes." + req.params.linkcode + ".robloxid", req.params.robloxid)
-    file.set("codes." + req.params.linkcode + ".linkcode", req.params.linkcode)
-    file.set("codes." + req.params.robloxid + ".linkcode", req.params.linkcode)
+    let linkcode = randomstring.generate({length: 6,charset: 'alphanumeric', capitalization:'lowercase'});
+    file.set("codes." + linkcode + ".robloxid", req.params.robloxid)
+    file.set("codes." + linkcode + ".linkcode", linkcode)
+    file.set("codes." + req.params.robloxid + ".linkcode", linkcode)
     file.set("codes." + req.params.robloxid + ".robloxid", req.params.robloxid)
     file.save()
     var response = {
