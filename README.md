@@ -3,7 +3,7 @@ Zing Tech Whitelisting Bot
 
 hi, this is a very customisable version of the zing tech bot for whitelisting ur products - heres a setup guide.
 
-1. clone this repo with `git clone https://github.com/iPanda969/whitelistbot`
+1. clone this repo with `git clone https://github.com/axivl/whitelistbot`
 
 2. run `npm i` to install the required packages
 
